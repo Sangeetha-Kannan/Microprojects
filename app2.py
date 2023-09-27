@@ -27,10 +27,10 @@ for folder in [glb_root, glb_01_input, glb_03_output, glb_04_temp_input]:
 
 # Streamlit app
 def main():
-    st.title("File Upload and Processing App")
+    st.title("File Upload")
 
     # File upload section
-    uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
+    uploaded_file = st.file_uploader("Upload a genome file here", type=["csv","txt"])
 
     if uploaded_file is not None:
         # Check if the file is uploaded
@@ -41,10 +41,6 @@ def main():
         with open(file_path, "wb") as f:
             f.write(uploaded_file.getvalue())
 
-        # Process the client_raw data as needed
-
-        # You can display the processed data or any other information to the user here
-        st.dataframe(client_raw)  # Display the DataFrame
-
+       
 if __name__ == "__main__":
     main()
